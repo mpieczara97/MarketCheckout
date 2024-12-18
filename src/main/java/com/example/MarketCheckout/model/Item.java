@@ -1,26 +1,48 @@
 package com.example.MarketCheckout.model;
 
+import com.example.MarketCheckout.pricing.rule.BundleDiscountRule;
+import com.example.MarketCheckout.pricing.rule.MultiPricingRule;
+
+import java.math.BigDecimal;
+
 public class Item {
-    private final String sku;
+    private final long id;
     private final String name;
-    private final double price;
+    private final BigDecimal price; // Price in BigDecimal
+    private MultiPricingRule multiPricingRule;
+    private BundleDiscountRule bundleDiscountRule;
 
-
-    public Item(String sku, String name, double price) {
-        this.sku = sku;
+    public Item(long id, String name, BigDecimal price) {
+        this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public String getSku() {
-        return sku;
+    public long getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
+    }
+
+    public MultiPricingRule getMultiPricingRule() {
+        return multiPricingRule;
+    }
+
+    public void setMultiPricingRule(MultiPricingRule multiPricingRule) {
+        this.multiPricingRule = multiPricingRule;
+    }
+
+    public BundleDiscountRule getBundleDiscountRule() {
+        return bundleDiscountRule;
+    }
+
+    public void setBundleDiscountRule(BundleDiscountRule bundleDiscountRule) {
+        this.bundleDiscountRule = bundleDiscountRule;
     }
 }

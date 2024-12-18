@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cart {
-    private final Map<String, CartItem> items = new HashMap<>();
+    private final Map<Long, CartItem> items = new HashMap<>();
 
     public void addItem(Item item) {
-        items.computeIfAbsent(item.getSku(), k -> new CartItem(item)).incrementQuantity();
+        items.computeIfAbsent(item.getId(), k -> new CartItem(item)).incrementQuantity();
     }
 
-    public Map<String, CartItem> getItems() {
+    public Map<Long, CartItem> getItems() {
         return items;
     }
 
