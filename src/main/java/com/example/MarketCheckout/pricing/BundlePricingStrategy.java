@@ -16,10 +16,10 @@ public class BundlePricingStrategy implements PricingStrategy {
     @Override
     public BigDecimal calculatePrice(CartItem cartItem) {
         BundleDiscountRule rule = cartItem.getItem().getBundleDiscountRule();
-        if (rule == null) return null; // Nie obsługujemy tego produktu
+        if (rule == null) return null;
 
         CartItem pairedItem = cart.getItems().get(rule.pairedId());
-        if (pairedItem == null) return null; // Brak pary w koszyku
+        if (pairedItem == null) return null;
 
         BigDecimal discount = BigDecimal.valueOf(
                 Math.min(cartItem.getQuantity(), pairedItem.getQuantity())
