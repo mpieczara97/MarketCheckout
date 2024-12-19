@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Item {
     private final long id;
     private final String name;
-    private final BigDecimal price; // Price in BigDecimal
+    private final BigDecimal price;
     private MultiPricingRule multiPricingRule;
     private BundleDiscountRule bundleDiscountRule;
 
